@@ -1,0 +1,8 @@
+D:\React\X-1\X-1\bin\X-1.dll.config
+D:\React\X-1\X-1\bin\X-1.dll
+D:\React\X-1\X-1\bin\X-1.pdb
+D:\React\X-1\X-1\bin\model.dll
+D:\React\X-1\X-1\bin\model.pdb
+D:\React\X-1\X-1\obj\Debug\X-1.csprojResolveAssemblyReference.cache
+D:\React\X-1\X-1\obj\Debug\X-1.dll
+D:\React\X-1\X-1\obj\Debug\X-1.pdb
