@@ -34,7 +34,7 @@ namespace X_1.ajax
             StringBuilder temphtml = new StringBuilder();
             //Bitmap bmp= pr.ReadImageFile(@"D:\picdome\1.jpg",out temphtml);
 
-            System.Drawing.Image[] imarray = pr.SplitImage(@"D:\picdome\1.jpg", 31, 19, string.Empty, string.Empty, System.Drawing.Imaging.ImageFormat.Png, false);
+            System.Drawing.Image[] imarray = pr.SplitImage(@"D:\picdome\1.jpg", 640, 400, string.Empty, string.Empty, System.Drawing.Imaging.ImageFormat.Png, false);
             List<string> img64 = new List<string>();
             foreach (System.Drawing.Image im in imarray)
             {

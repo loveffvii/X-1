@@ -51,7 +51,7 @@
 <body>
 <div class="view">
 	<div class="box" id="bb">
-		<canvas id="cas" ></canvas>
+		<%--<canvas id="cas" ></canvas>--%>
          <table>
          <tbody id="imglists">
            <%--  <% =rowInnerHtml %>--%>
@@ -82,26 +82,27 @@
                 var tempcontent = '';
                 var countemp = 0;
                 var image;
+                //var container = document.getElementById('imglists');
+                var container =$('#imglists');
                 for (var iw = 0; iw < data.hight; iw++)
                 {
-                    tempcontent += "<tr>";
+                    var trDisplay = $("<tr></tr>");
+                    container.append(trDisplay);
                     for (var ih = 0; ih < data.width; ih++)
                     {
-                         image = new Image();
-                         tempcontent += "<td id=\"td\"><canvas id=\"png\" ></canvas><image src=\"data:image/png;base64," + data.imglist[countemp].imgstring + "\"/></td>";
-                         //image.onload = function () {
-                         //    ctx.drawImage(image, 0, 0);
-                         //};
-                         //image.src = "data:image/png;base64," + data.imglist[countemp].imgstring;
+                        var td = $("<td></td>");
+                        var createobj = jQuery("<div style=\"position:relative;left:" + (200 + ih * 700) + "px;top:" + (200 + iw * 500) + "px\"><div id=\"subid" + countemp + "\" style=\"position:absolute;left:0px;top:0px\"><canvas id=\"png" + countemp
+                            + "\" width=\"640\" height=\"400\"></canvas></div><div style=\"position:absolute;left:0px;top:0px;z-index:-1;\"><image src=\"data:image/png;base64,"
+                            + data.imglist[countemp].imgstring + "\"/></div></div>");
+                        td.append(createobj);     
+                        trDisplay.append(td);
+                        loadCanvas("png" + countemp, "subid" + countemp);
                         countemp++;
                         if (countemp >= data.imglist.length) break;
                         //if (countemp >= 100) break;
                     }
-                    tempcontent+="</tr>";
+                                
                 }
-                $("#imglists").html(tempcontent);
-                loadCanvas("png", "td")
-
             }
         });
     }
@@ -118,7 +119,7 @@
         canvas.height = canvasBox.clientHeight;
 
         var img = new Image();
-        img.src = "Occlusion.JPG";
+        img.src = "pic6.JPG";
         img.onload = function () {
             var w = canvas.height * img.width / img.height;
             ctx.drawImage(img, (canvas.width - w) / 2, 0, w, canvas.height);
